@@ -1,0 +1,159 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "180",
+      "weight": "78",
+      "goal": "Build muscle and improve endurance for competitive cycling",
+      "restrictions": "gluten-free, dairy-free, nut allergy"
+    },
+    "solution_criteria": [
+      "All meals are gluten-free, dairy-free, and contain no nuts",
+      "Plan provides adequate protein (minimum 1.6g per kg body weight) to support muscle building",
+      "Includes 5-6 meals/snacks distributed throughout the day for sustained energy",
+      "Meals are practical and can be prepared/consumed within a typical day"
+    ],
+    "task_description": "Write a compact, consise one-day meal plan for the athlete.",
+    "scenario": "Testing with an athlete with multiple dietary restrictions (gluten-free, dairy-free, nut allergy) simultaneously"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "68 kg",
+      "goal": "Marathon training with high carbohydrate intake for sustained energy",
+      "restrictions": "Vegetarian, no nuts"
+    },
+    "solution_criteria": [
+      "Meal plan includes 5-6 eating occasions spread throughout the day to maintain sustained energy",
+      "Carbohydrates comprise approximately 55-65% of total daily calories to support endurance training",
+      "All meals and snacks are vegetarian and nut-free",
+      "Plan is presented in a compact, concise format suitable for one day"
+    ],
+    "task_description": "Write a compact, consise one-day meal plan for the athlete.",
+    "scenario": "Testing with an endurance athlete (marathoner) requiring high carbohydrate intake and sustained energy throughout the day"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "82 kg",
+      "goal": "cutting phase - reduce body fat while maintaining muscle mass and athletic performance",
+      "restrictions": "no shellfish, prefers whole foods"
+    },
+    "solution_criteria": [
+      "Meal plan creates a moderate caloric deficit suitable for fat loss",
+      "Includes adequate protein distribution across meals to preserve muscle mass",
+      "Contains foods that support athletic performance and recovery",
+      "Respects dietary restrictions and is concise enough for one day"
+    ],
+    "task_description": "Write a compact, consise one-day meal plan for the athlete.",
+    "scenario": "Testing with an athlete in cutting phase (reducing body fat) while maintaining performance and muscle mass"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "82 kg",
+      "goal": "High-intensity endurance training with early morning 5:30 AM start",
+      "restrictions": "Vegetarian, no dairy"
+    },
+    "solution_criteria": [
+      "Includes a pre-dawn meal (before 5:30 AM) with easily digestible carbohydrates and protein",
+      "Provides compact, practical meal plan for full day with appropriate caloric distribution for athlete",
+      "All meals respect vegetarian and dairy-free restrictions",
+      "Uses concise format suitable for quick reference during training schedule"
+    ],
+    "task_description": "Write a compact, consise one-day meal plan for the athlete.",
+    "scenario": "Testing with an early morning training schedule requiring pre-dawn meal planning and quick digestion protocols"
+  },
+  {
+    "prompt_inputs": {
+      "height": "183 cm",
+      "weight": "78 kg",
+      "goal": "Maintain steady energy and mental focus for tennis tournament play",
+      "restrictions": "No dairy products"
+    },
+    "solution_criteria": [
+      "Meal plan covers breakfast, lunch, and pre/during/post-match meals suitable for a tennis player",
+      "All meals accommodate the dairy-free restriction",
+      "Meals emphasize stable blood sugar and mental clarity through balanced carbohydrates, protein, and healthy fats",
+      "Plan is compact and formatted as a single-day schedule"
+    ],
+    "task_description": "Write a compact, consise one-day meal plan for the athlete.",
+    "scenario": "Testing with a sport with high technical skill focus (tennis, golf) requiring mental clarity and stable energy levels"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "78 kg",
+      "goal": "Build muscle and maintain endurance for professional soccer",
+      "restrictions": "Vegetarian, no access to kitchen facilities"
+    },
+    "solution_criteria": [
+      "Meal plan requires minimal or no cooking (uses no-cook, single-appliance, or grab-and-go options)",
+      "Provides adequate protein and carbohydrates aligned with stated athletic goal",
+      "All meals and snacks are practical for a traveling professional with limited equipment"
+    ],
+    "task_description": "Write a compact, consise one-day meal plan for the athlete.",
+    "scenario": "Testing with minimal cooking time/equipment scenario for traveling or busy professional athletes"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "72 kg",
+      "goal": "Build muscle and improve endurance for competitive cycling",
+      "restrictions": "Vegan diet (no animal products including dairy and eggs)"
+    },
+    "solution_criteria": [
+      "Meal plan contains only plant-based foods with no animal products",
+      "Includes complete protein sources at each meal meeting ~1.6g protein per kg bodyweight daily",
+      "Covers key micronutrients often limited in vegan diets (B12, iron, calcium, omega-3s)",
+      "Format is compact and easy to follow for a single day"
+    ],
+    "task_description": "Write a compact, consise one-day meal plan for the athlete.",
+    "scenario": "Testing with a vegan/plant-based athlete requiring complete protein sources and nutrient optimization without animal products"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "68 kg",
+      "goal": "Build muscle and improve athletic performance for competitive soccer",
+      "restrictions": "Vegetarian, no nuts or tree nuts"
+    },
+    "solution_criteria": [
+      "Meal plan covers all three meals and includes protein-rich options suitable for vegetarian diet and muscle-building goals",
+      "Plan accounts for elevated caloric and nutritional needs appropriate for teenage athlete growth and development",
+      "Format is compact and concise, easy to follow for one day"
+    ],
+    "task_description": "Write a compact, consise one-day meal plan for the athlete.",
+    "scenario": "Testing with a youth athlete (teenage) requiring additional growth and developmental nutritional support"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "88 kg",
+      "goal": "muscle recovery and strength gains for weightlifting competition",
+      "restrictions": "none"
+    },
+    "solution_criteria": [
+      "Meal plan contains 4-5 meals distributed throughout the day with adequate protein (minimum 2.2g per kg bodyweight, ~190g total)",
+      "Meals include high caloric density foods to support muscle recovery and training demands",
+      "Plan is formatted compactly as a single-day guide with meal timing and basic portions"
+    ],
+    "task_description": "Write a compact, consise one-day meal plan for the athlete.",
+    "scenario": "Testing with a strength/power athlete (weightlifter) needing high protein distribution and caloric density for muscle recovery"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "75 kg",
+      "goal": "Maintain 71 kg weight for middleweight boxing competition in 3 days while preserving strength and energy",
+      "restrictions": "No gluten, prefers whole foods"
+    },
+    "solution_criteria": [
+      "Meal plan totals approximately 2,000-2,200 calories to support gradual 4 kg weight loss while maintaining training intensity",
+      "Includes high-protein meals (minimum 120g daily) to preserve muscle mass during weight cut",
+      "All meals are gluten-free and use whole food ingredients",
+      "Plan is concise and formatted as a single day that can be repeated with minor variations"
+    ],
+    "task_description": "Write a compact, consise one-day meal plan for the athlete.",
+    "scenario": "Testing with a sport with specific weight class requirements (boxer) balancing nutrition while maintaining target weight"
+  }
+]

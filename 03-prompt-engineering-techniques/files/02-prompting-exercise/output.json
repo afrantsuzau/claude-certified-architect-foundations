@@ -1,0 +1,173 @@
+[
+  {
+    "output": "# Topics in This Study\n\n## Primary Topic\n- **Cognitive Behavioral Therapy (CBT)** for anxiety disorders\n\n## Secondary Topics\n\n1. **Treatment Efficacy/Outcomes**\n   - Anxiety symptom reduction rates\n   - Pre- and post-intervention measurements\n\n2. **Demographic Factors**\n   - Gender differences in treatment response\n   - Age-related treatment effectiveness\n\n3. **Therapeutic Mechanisms**\n   - Cognitive restructuring\n   - Exposure therapy\n   - Behavioral activation\n\n4. **Treatment Adherence & Engagement**\n   - Adherence rates and their correlation with outcomes\n   - Dropout rates and reasons for attrition\n\n5. **Statistical/Methodological Elements**\n   - Study design (12-week intervention)\n   - Sample size (847 patients)\n   - Statistical measures (effect sizes, correlations, p-values)\n\nThis is fundamentally a **clinical research study** evaluating the effectiveness of a psychological intervention with attention to patient outcomes, individual differences, and treatment compliance.",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "This study examined the efficacy of cognitive behavioral therapy (CBT) in treating anxiety disorders across 847 patients over a 12-week intervention period. Results demonstrated a 67% reduction in anxiety symptoms, with mean anxiety scores decreasing from 32.4 (SD=5.1) to 10.7 (SD=4.3). Gender differences were minimal (p=0.284), though patients aged 25-40 showed significantly greater improvements than those over 50 (effect size d=0.89). The therapeutic mechanisms underlying CBT's effectiveness include cognitive restructuring, exposure therapy, and behavioral activation. Treatment adherence rates of 78% correlated positively with positive outcomes (r=0.56, p<0.001), while dropout rates of 15% were primarily attributed to scheduling conflicts rather than dissatisfaction with the therapeutic approach."
+      },
+      "solution_criteria": [
+        "Extracts conceptual topics (e.g., cognitive behavioral therapy, anxiety disorders, therapeutic mechanisms) as distinct entries",
+        "Does not include numerical values, statistics, percentages, or measurements as standalone topics",
+        "Excludes population descriptors (sample sizes, age ranges) as topics unless they are conceptual themes"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+      "scenario": "Testing with a passage containing numerical data and statistics to verify the prompt distinguishes data from conceptual topics"
+    },
+    "score": 3,
+    "reasoning": "The solution fails all three mandatory requirements. While the content itself identifies appropriate topics, the format is fundamentally wrong. The task explicitly requires 'a JSON array of strings, containing each topic' with 'strings should contain only a topic without any extra commentary' and 'Response should contain the JSON array and nothing else.' Instead, the solution provides a structured markdown document with headers, categories, and explanatory text. A correct response would be a simple JSON array like: [\"Cognitive Behavioral Therapy\", \"Anxiety Disorders\", \"Treatment Efficacy\", \"Therapeutic Mechanisms\", \"Treatment Adherence\", etc.]"
+  },
+  {
+    "output": "# Topics in this text:\n\n1. **Machine Learning** - advances and improvements in the field\n2. **Natural Language Processing (NLP)** - specific application area showing improvements\n3. **Transformer Architectures** - a type of neural network model\n4. **Attention Mechanisms** - a key component that processes text\n5. **Long-range Dependencies** - the linguistic problem being addressed (how words far apart in text relate to each other)\n\nThe text is essentially about how modern AI models (transformers) use attention mechanisms to better understand relationships between distant words in text.",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "Recent advances in machine learning have demonstrated significant improvements in natural language processing tasks. This study focuses on transformer-based architectures that utilize attention mechanisms to capture long-range dependencies in text."
+      },
+      "solution_criteria": [
+        "Extracts all major topics present in the passage",
+        "Returns output as a valid JSON array of strings",
+        "Includes primary concepts without excessive fragmentation"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+      "scenario": "Testing with a very short passage (2-3 sentences) to verify the prompt handles minimal content appropriately"
+    },
+    "score": 3,
+    "reasoning": "While the solution demonstrates excellent understanding of the content and identifies appropriate topics (Machine Learning, Natural Language Processing, Transformer Architectures, Attention Mechanisms, Long-range Dependencies), it fails all three mandatory requirements. The output must be a valid JSON array of strings containing only topic names, with no additional text, formatting, or commentary. The current response provides markdown-formatted explanations and descriptive text, which directly violates the explicit requirements."
+  },
+  {
+    "output": "# Topics in This Text\n\n1. **Climate Adaptation Strategies** - Various approaches communities use to adjust to climate change\n\n2. **Geographic Variation** - How adaptation differs across different regions and contexts\n\n3. **Flooding Management** - Specific techniques like floating gardens and tidal embankments in Bangladesh\n\n4. **Agricultural Innovation** - Development of salt-tolerant rice varieties and crop adaptation\n\n5. **Soil Salinization** - Environmental challenge and responses in coastal/delta regions\n\n6. **Rainfall Variability** - Dealing with unpredictable precipitation patterns (Kenya example)\n\n7. **Pastoralism & Livestock Management** - Diversified portfolios and mobile water systems for herding communities\n\n8. **Livelihood Resilience** - Building sustainable ways of life despite environmental pressures\n\n9. **Community-Based Resource Management** - Local, grassroots approaches to environmental challenges\n\n10. **Water Management** - Systems for managing water resources in variable climates\n\n**Overall Theme:** How different communities worldwide are adapting agricultural and livelihood practices to cope with climate change and environmental variability.",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "Recent studies demonstrate how climate adaptation strategies vary across geographic contexts. In Bangladesh, communities have implemented floating gardens and tidal embankments to manage monsoon flooding, while simultaneously developing salt-tolerant rice varieties to counter soil salinization. Meanwhile, Kenyan pastoralists have adopted mobile water management systems and diversified livestock portfolios to cope with increasingly erratic rainfall patterns. These case studies illustrate broader principles of livelihood resilience, agricultural innovation, and community-based resource management in the face of environmental change."
+      },
+      "solution_criteria": [
+        "Extracts all major topics implied through examples and case studies, including but not limited to: climate adaptation, flood management, agricultural innovation, and resource management",
+        "Returns results as a JSON array of strings",
+        "Identifies topics even when not explicitly stated as single phrases, requiring inference from provided examples"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+      "scenario": "Testing with a passage where topics are not explicitly stated but implied through examples and case studies"
+    },
+    "score": 2,
+    "reasoning": "The solution fails all three mandatory requirements. It does not return results as a JSON array of strings - instead it provides a formatted numbered list with descriptive text for each item. The strings contain extra commentary explaining each topic, violating the requirement for 'only a topic without any extra commentary.' The response includes an entire additional section ('Overall Theme') when it should contain 'only' the JSON array. While the actual topic identification is comprehensive and accurate, the format violation is a mandatory requirement failure that results in automatic assignment of a score of 3 or lower."
+  },
+  {
+    "output": "# Topics in this text:\n\n1. **The Berlin Wall's Fall (1989)** - Historical event and its significance\n2. **Cold War Geopolitics** - The broader political context\n3. **East German History** - Specifically the breaching of the wall by citizens\n4. **Ideological Division** - The symbolic meaning of the barrier\n5. **Soviet Leadership** - Mikhail Gorbachev's role\n6. **Glasnost and Perestroika** - Soviet reform policies and their effects\n7. **Eastern Bloc Control** - Destabilization and collapse\n8. **Post-War European Order** - Western powers' geopolitical reshaping\n9. **German Reunification** - The political process and negotiations\n10. **Economic Integration** - Challenges of integrating communist and capitalist economies\n11. **Economic Disparities** - Differences in infrastructure, industry, and living standards\n12. **Institutional Reform** - Structural changes needed in formerly communist regions\n\n**Core theme:** The political and economic consequences of the Cold War's end, particularly focusing on German reunification and the challenges of integrating East and West Germany.",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "The fall of the Berlin Wall in 1989 marked a pivotal moment in Cold War geopolitics, as East German citizens breached the concrete barrier that had symbolized ideological division for nearly three decades. The subsequent reunification process involved complex negotiations between Soviet leadership under Mikhail Gorbachev, whose policies of glasnost and perestroika had inadvertently destabilized Eastern Bloc control, and Western powers seeking to reshape the post-war European order. Economic integration of formerly communist regions proved more challenging than anticipated, with significant disparities in infrastructure, industrial capacity, and living standards requiring substantial capital investment and institutional reform across multiple sectors."
+      },
+      "solution_criteria": [
+        "Extracts explicit topics directly mentioned (e.g., Berlin Wall, Cold War, reunification)",
+        "Identifies implicit topics requiring inference from context (e.g., Soviet collapse, geopolitical realignment, economic disparity)",
+        "Returns results as a JSON array of strings",
+        "Avoids duplicates and maintains reasonable granularity of topics"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+      "scenario": "Testing with a passage discussing historical events that contain implicit topics requiring inference"
+    },
+    "score": 2,
+    "reasoning": "The solution comprehensively identifies relevant topics from the passage and demonstrates good understanding of both explicit and implicit concepts. However, it fundamentally violates the mandatory requirements by: (1) not providing output as a JSON array of strings, (2) including substantial commentary and markdown formatting instead of only the array, and (3) adding headers and thematic summaries. The mandatory requirements explicitly state 'Response should contain the JSON array and nothing else.' This is an automatic failure condition regardless of the quality of topic extraction."
+  },
+  {
+    "output": "# Topics in This Study\n\n## Primary Topics\n1. **Cognitive Psychology** - Understanding how the mind works in learning\n2. **Educational Neuroscience** - Brain-based approaches to education\n3. **Metacognition** - Thinking about one's own thinking processes\n\n## Specific Metacognitive Components\n- Self-monitoring\n- Strategy selection\n- Performance evaluation\n\n## Neuroscience Findings\n- **Brain activation** - Prefrontal cortex involvement\n- **Executive function** - Higher-order cognitive control\n- **Working memory** - Temporary information processing\n\n## Application Areas\n- **Educational interventions** - Training protocols to improve metacognition\n- **Individual differences** - Variations in working memory capacity\n- **Domain-specific learning:**\n  - Mathematical reasoning\n  - Reading comprehension\n\n## Cross-Cutting Themes\n- **Transfer effects** - How skills apply across different contexts\n- **Student achievement** - Academic performance outcomes\n\nIn essence, this is about how being aware of and managing your own thinking processes improves learning, with supporting evidence from brain imaging and practical classroom applications.",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "This study examines the intersection of cognitive psychology and educational neuroscience in understanding learning mechanisms. We investigate how metacognitive strategies\u2014encompassing self-monitoring, strategy selection, and performance evaluation\u2014enhance student achievement across domains. Furthermore, our neuroimaging findings reveal that metacognition activates prefrontal cortex regions previously associated with executive function and working memory processes. These cognitive and neural correlates of metacognition suggest that interventions targeting metacognitive awareness may simultaneously strengthen executive control capacities. Additionally, we explore how metacognitive training protocols interact with individual differences in working memory capacity, demonstrating domain-specific transfer effects in mathematical reasoning and reading comprehension tasks."
+      },
+      "solution_criteria": [
+        "Extracts all distinct topics without duplicating closely related concepts that could be grouped (e.g., metacognition, executive function, and working memory should be separate entries despite their interconnection)",
+        "Presents topics in valid JSON array format with string elements",
+        "Captures both psychological/cognitive topics and neuroscience-related topics mentioned in the passage"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+      "scenario": "Testing with a passage that has overlapping or related topics that could be grouped differently"
+    },
+    "score": 2,
+    "reasoning": "The solution demonstrates strong understanding of the content and identifies appropriate topics with good organization. However, it completely fails to meet all three mandatory requirements: (1) it is not a JSON array, (2) the entries contain extra commentary beyond simple topic strings, and (3) it includes substantial markdown formatting and explanatory text instead of only the JSON array. The task explicitly requires a JSON array of strings containing only topics with no additional content, and this solution violates this requirement entirely."
+  },
+  {
+    "output": "# Topics in This Text\n\n1. **Quantum Entanglement Detection**\n   - Bell test experiments\n   - Loophole-free measurements\n\n2. **Quantum Cryptography**\n   - Quantum key distribution (QKD) protocols\n   - Entangled photon pairs\n   - Security advantages over classical methods\n\n3. **Quantum Error Correction**\n   - Surface codes\n   - Topological codes\n   - Scaling quantum computing\n\n4. **Quantum Computing Hardware**\n   - Superconducting qubits\n   - Trapped-ion systems\n   - Coherence times and gate fidelity\n\n5. **Quantum Mechanics Foundations**\n   - Quantum nonlocality\n   - Contextuality\n   - Measurement-induced entanglement\n\n6. **Quantum Information Applications**\n   - Quantum teleportation\n   - Distributed quantum computing\n\n**Overall Theme:** Advanced quantum technologies and their practical implementations in computing and cryptography.",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "Recent advances in quantum entanglement detection have been facilitated by improvements in Bell test experiments and loophole-free measurements. The implementation of quantum key distribution protocols utilizing entangled photon pairs has demonstrated superior security guarantees compared to classical cryptography methods. Furthermore, the development of quantum error correction codes, particularly surface codes and topological codes, has become critical for scaling quantum computing architectures. These techniques address decoherence mechanisms in superconducting qubits and trapped-ion systems, enabling longer coherence times and higher fidelity gate operations. The relationship between quantum nonlocality, contextuality, and measurement-induced entanglement generation continues to yield insights for quantum teleportation and distributed quantum computing frameworks."
+      },
+      "solution_criteria": [
+        "All key domain-specific terms and concepts (quantum entanglement, Bell test, quantum key distribution, quantum error correction, decoherence, etc.) are captured as distinct topics",
+        "Output is a valid JSON array of strings with appropriate topic labels",
+        "Topics accurately reflect the scholarly content without over-generalizing or under-specifying"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+      "scenario": "Testing with a passage containing domain-specific jargon from quantum physics that requires precise topic extraction"
+    },
+    "score": 2,
+    "reasoning": "The solution violates all three mandatory requirements. While the content itself identifies appropriate topics and demonstrates strong understanding of the scholarly material, the format is fundamentally wrong. The solution provides a markdown-formatted document with hierarchical organization, sub-topics, and explanatory text instead of a simple JSON array of topic strings. The mandatory requirements explicitly state: (1) must be a JSON array of strings, (2) strings should contain only topics without extra commentary, and (3) response should contain the JSON array and nothing else. This solution violates all three by using markdown formatting, including sub-bullets and descriptions, and providing extensive additional commentary. A correct response would be a simple JSON array like: [\"Quantum Entanglement Detection\", \"Bell Test Experiments\", \"Loophole-free Measurements\", ...]"
+  },
+  {
+    "output": "# Topics in this text:\n\n1. **Climate Modeling** - atmospheric CO2 and ocean heat absorption dynamics\n\n2. **Global Warming** - surface temperature increases and anthropogenic (human-caused) warming\n\n3. **Climate Feedback Mechanisms** - water vapor amplification and albedo reduction\n\n4. **Arctic Ice Loss** - sea ice decline and its climate effects\n\n5. **Paleoclimatology** - ice core and sediment core analysis of past climate\n\n6. **Climate Change Rates** - comparison of current vs. natural historical warming\n\n7. **Hydrological Cycle** - precipitation pattern changes\n\n8. **Climate Impacts** - effects on:\n   - Agriculture\n   - Freshwater resources\n   - Ecosystem migration\n   - Multiple biomes\n\nThis is essentially an overview of **climate change science**, covering its causes, evidence, mechanisms, and consequences.",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "Recent climate modeling studies demonstrate the complex interplay between atmospheric CO2 concentrations and oceanic heat absorption, revealing that surface temperature increases are exacerbated by positive feedback mechanisms involving water vapor amplification and albedo reduction from Arctic sea ice loss. Furthermore, paleoclimate reconstructions utilizing ice core isotope analysis and sediment core chronologies indicate that current anthropogenic warming rates exceed natural variability by an order of magnitude, while simultaneously, hydrological cycle intensification is altering precipitation patterns and triggering cascading impacts on agriculture, freshwater availability, and ecosystem migration patterns across multiple biomes."
+      },
+      "solution_criteria": [
+        "All distinct topics are identified and extracted into the JSON array",
+        "Topics are specific enough to be meaningful (e.g., not overly broad or vague)",
+        "Nested or interconnected concepts are captured as separate topics"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+      "scenario": "Testing with a passage containing multiple nested topics within a single paragraph of climate change research"
+    },
+    "score": 2,
+    "reasoning": "The solution fails all three mandatory requirements. While the content identifies valid and appropriate topics, the format is completely wrong. The task explicitly requires: (1) a JSON array of strings, (2) containing only topic names without extra commentary, and (3) the response should contain the JSON array and nothing else. The provided solution instead presents topics as a formatted markdown list with descriptions, explanatory text, and a concluding paragraph. This is an automatic failure despite the quality of topic extraction."
+  },
+  {
+    "output": "# Topics Covered\n\n1. **Machine Learning (ML)** - General field and recent advances\n\n2. **Natural Language Processing (NLP)** - Core application area\n\n3. **Transformer-Based Architectures** - Neural network framework\n\n4. **BERT Model** - Specific pre-trained language model by Google\n\n5. **Bidirectional Encoder Representations** - Technical approach used in BERT\n\n6. **Benchmark Datasets** - GLUE and SuperGLUE for evaluation\n\n7. **Fine-Tuning** - Model adaptation technique\n\n8. **Low-Rank Adaptation (LoRA)** - Efficient training method\n\n9. **Transfer Learning** - Applying pre-trained models to new tasks\n\n10. **Downstream NLP Tasks:**\n    - Sentiment Analysis\n    - Question Answering (QA)\n    - Named Entity Recognition (NER)\n\n11. **Large Language Models (LLMs)** - GPT-3 and variants\n\n12. **Prompt Engineering** - Technique for optimizing LLM inputs\n\n13. **In-Context Learning** - Learning from examples in prompts\n\n14. **Knowledge Distillation (KD)** - Model compression technique\n\n15. **Computational Efficiency** - Reducing overhead in model deployment",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "Recent advances in machine learning (ML) have revolutionized natural language processing (NLP) through the development of transformer-based architectures. The BERT model, introduced by Google, utilizes bidirectional encoder representations and has significantly improved performance on various benchmark datasets such as GLUE and SuperGLUE. Furthermore, fine-tuning pre-trained language models using techniques like Low-Rank Adaptation (LoRA) has enabled efficient transfer learning across downstream tasks including sentiment analysis, question answering (QA), and named entity recognition (NER). The emergence of large language models (LLMs) such as GPT-3 and their variants has also prompted discussions around prompt engineering, in-context learning, and the reduction of computational overhead through knowledge distillation (KD) methodologies."
+      },
+      "solution_criteria": [
+        "Correctly identifies core topics despite presence of acronyms and abbreviations (e.g., ML, NLP, BERT, LoRA, QA, NER, LLMs, KD)",
+        "Extracts topics as full semantic concepts rather than fragmentary acronym definitions",
+        "Avoids duplicating topics and maintains clarity in the JSON array format"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+      "scenario": "Testing with a passage containing acronyms and abbreviations to ensure topics are correctly identified despite abbreviations"
+    },
+    "score": 2,
+    "reasoning": "The solution identifies appropriate topics and understands the semantic content well, meeting the secondary criteria for topic extraction quality. However, it catastrophically fails all three mandatory requirements: (1) The output is not a JSON array of strings - it's formatted as a markdown-styled numbered list, (2) Each entry contains substantial commentary beyond just the topic name (e.g., '- General field and recent advances'), and (3) The response includes a markdown header and additional formatting rather than containing only the JSON array. The correct format should be: {\"topics\": [\"Machine Learning\", \"Natural Language Processing\", ...]} or similar, with no extra text or commentary."
+  },
+  {
+    "output": "# Topics in This Study\n\n1. **Mental Health Treatment**\n   - Cognitive Behavioral Therapy (CBT)\n   - Social anxiety disorder\n\n2. **Research Methodology**\n   - Mixed-methods design\n   - Longitudinal survey data\n   - Semi-structured interviews\n   - Qualitative thematic analysis\n\n3. **Assessment Tools**\n   - Social Phobia Scale\n   - Beck Anxiety Inventory\n   - Self-report measures\n\n4. **Clinical Outcomes**\n   - Anxiety symptom reduction\n   - Treatment efficacy\n   - Clinically meaningful improvement\n\n5. **Intervention Techniques**\n   - Exposure-based interventions\n   - Avoidance behavior targeting\n   - Cognitive restructuring\n   - Emotion regulation\n\n6. **Neurobiology/Brain Imaging**\n   - Functional MRI (fMRI)\n   - Amygdala activation\n   - Neurobiological mechanisms\n\n7. **Study Design Elements**\n   - Baseline and follow-up measurements\n   - 12-week and 24-week time points",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "This study employed a mixed-methods design combining longitudinal survey data with semi-structured interviews to examine cognitive behavioral therapy (CBT) efficacy in treating social anxiety disorder. Participants completed validated self-report measures including the Social Phobia Scale and Beck Anxiety Inventory at baseline, 12 weeks, and 24 weeks post-intervention. Qualitative thematic analysis revealed that exposure-based interventions targeting avoidance behaviors produced significant reductions in anxiety symptoms, with 68% of participants demonstrating clinically meaningful improvement. Additionally, neuroimaging findings from functional MRI indicated decreased amygdala activation following treatment, supporting the neurobiological mechanisms underlying cognitive restructuring and emotion regulation processes in anxiety disorders."
+      },
+      "solution_criteria": [
+        "Extracts both methodological topics (mixed-methods design, longitudinal survey, semi-structured interviews, thematic analysis, functional MRI) and content topics (CBT, social anxiety disorder, exposure-based interventions, anxiety symptoms, emotion regulation)",
+        "Output is a valid JSON array of strings",
+        "No irrelevant or fabricated topics are included"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+      "scenario": "Testing with a passage that mixes methodological topics with content topics in psychology research"
+    },
+    "score": 3,
+    "reasoning": "The solution fails to meet all three mandatory requirements. While the content itself identifies relevant topics accurately, the delivery format is fundamentally wrong. The task explicitly requires: (1) a JSON array of strings, (2) only topics with no extra commentary, and (3) the JSON array and nothing else. The provided solution is a markdown-formatted document with categorical groupings, numbered lists, and explanatory text. This represents a complete structural failure of the core requirement, regardless of content quality. A correct solution would be: {\"topics\": [\"Cognitive Behavioral Therapy\", \"Social Anxiety Disorder\", \"Mixed-methods Design\", ...]} or similar simple JSON array format with no additional text."
+  },
+  {
+    "output": "# Topics in this passage:\n\n1. **Biopharmaceutical Supply Chain Economics** - the economic systems and challenges in producing drugs\n\n2. **Molecular Biology & Industrial Organization** - intersection of scientific production with business structures\n\n3. **Recombinant DNA Technology** - genetic engineering methods for protein production\n\n4. **Capital Requirements & Market Entry Barriers** - investment costs and regulatory obstacles\n\n5. **Fermentation Technology** - large-scale biological manufacturing processes\n\n6. **Patent Expiration & Generic Competition** - biosimilars and competitive pressures after patent loss\n\n7. **Enzyme Kinetics Optimization** - improving efficiency of biological processes\n\n8. **Manufacturing Labor Costs** - workforce expenses in production\n\n9. **Distribution Networks & Channel Economics** - how drugs reach end-users\n\n10. **Pricing Strategy** - complex pricing in pharmaceutical markets\n\n11. **Monoclonal Antibodies** - a specific therapeutic protein category\n\n12. **Hospital Procurement & Bulk Purchasing** - healthcare system buying behavior\n\n13. **Economies of Scale** - cost advantages of large-scale production\n\n14. **Clinical Efficacy Data** - performance metrics driving purchasing decisions\n\n**Core themes:** Pharmaceutical manufacturing economics, biotech supply chain complexity, and competitive dynamics in biologics markets.",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "The emergence of biopharmaceutical supply chains has created novel economic challenges at the intersection of molecular biology and industrial organization. Recent advances in recombinant DNA technology enable cost-effective production of therapeutic proteins, yet the capital requirements for fermentation facilities and regulatory compliance create significant barriers to market entry. Simultaneously, patent expiration of blockbuster biologics has intensified competition, forcing firms to optimize enzyme kinetics while managing labor costs in manufacturing. Network effects in distribution channels further complicate pricing strategies, as hospitals negotiate bulk purchases of monoclonal antibodies based on clinical efficacy data and production economies of scale."
+      },
+      "solution_criteria": [
+        "Extracts topics spanning biology, economics, and business domains without redundancy",
+        "Returns output as a valid JSON array of strings",
+        "Captures all major subject areas discussed in the passage"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+      "scenario": "Testing with a passage from an interdisciplinary article that spans topics across multiple fields (biology + economics, for example)"
+    },
+    "score": 3,
+    "reasoning": "While the solution identifies excellent topics that meet the secondary criteria (spanning domains, capturing major subject areas, minimal redundancy), it fails all three mandatory requirements: (1) the output is not in valid JSON array format, (2) the strings contain extra commentary and formatting rather than topics alone, and (3) the response includes additional explanatory text beyond the JSON array. The task explicitly requires ONLY a JSON array of strings with no additional content. This is a clear and automatic failure of mandatory requirements."
+  }
+]

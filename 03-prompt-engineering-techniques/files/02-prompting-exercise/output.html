@@ -1,0 +1,488 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">2.4 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">0.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a passage containing numerical data and statistics to verify the prompt distinguishes data from conceptual topics</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study examined the efficacy of cognitive behavioral therapy (CBT) in treating anxiety disorders across 847 patients over a 12-week intervention period. Results demonstrated a 67% reduction in anxiety symptoms, with mean anxiety scores decreasing from 32.4 (SD=5.1) to 10.7 (SD=4.3). Gender differences were minimal (p=0.284), though patients aged 25-40 showed significantly greater improvements than those over 50 (effect size d=0.89). The therapeutic mechanisms underlying CBT's effectiveness include cognitive restructuring, exposure therapy, and behavioral activation. Treatment adherence rates of 78% correlated positively with positive outcomes (r=0.56, p<0.001), while dropout rates of 15% were primarily attributed to scheduling conflicts rather than dissatisfaction with the therapeutic approach.</td>
+                <td class="criteria">• Extracts conceptual topics (e.g., cognitive behavioral therapy, anxiety disorders, therapeutic mechanisms) as distinct entries<br>• Does not include numerical values, statistics, percentages, or measurements as standalone topics<br>• Excludes population descriptors (sample sizes, age ranges) as topics unless they are conceptual themes</td>
+                <td class="output"><pre># Topics in This Study
+
+## Primary Topic
+- **Cognitive Behavioral Therapy (CBT)** for anxiety disorders
+
+## Secondary Topics
+
+1. **Treatment Efficacy/Outcomes**
+   - Anxiety symptom reduction rates
+   - Pre- and post-intervention measurements
+
+2. **Demographic Factors**
+   - Gender differences in treatment response
+   - Age-related treatment effectiveness
+
+3. **Therapeutic Mechanisms**
+   - Cognitive restructuring
+   - Exposure therapy
+   - Behavioral activation
+
+4. **Treatment Adherence & Engagement**
+   - Adherence rates and their correlation with outcomes
+   - Dropout rates and reasons for attrition
+
+5. **Statistical/Methodological Elements**
+   - Study design (12-week intervention)
+   - Sample size (847 patients)
+   - Statistical measures (effect sizes, correlations, p-values)
+
+This is fundamentally a **clinical research study** evaluating the effectiveness of a psychological intervention with attention to patient outcomes, individual differences, and treatment compliance.</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">The solution fails all three mandatory requirements. While the content itself identifies appropriate topics, the format is fundamentally wrong. The task explicitly requires 'a JSON array of strings, containing each topic' with 'strings should contain only a topic without any extra commentary' and 'Response should contain the JSON array and nothing else.' Instead, the solution provides a structured markdown document with headers, categories, and explanatory text. A correct response would be a simple JSON array like: ["Cognitive Behavioral Therapy", "Anxiety Disorders", "Treatment Efficacy", "Therapeutic Mechanisms", "Treatment Adherence", etc.]</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a very short passage (2-3 sentences) to verify the prompt handles minimal content appropriately</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in machine learning have demonstrated significant improvements in natural language processing tasks. This study focuses on transformer-based architectures that utilize attention mechanisms to capture long-range dependencies in text.</td>
+                <td class="criteria">• Extracts all major topics present in the passage<br>• Returns output as a valid JSON array of strings<br>• Includes primary concepts without excessive fragmentation</td>
+                <td class="output"><pre># Topics in this text:
+
+1. **Machine Learning** - advances and improvements in the field
+2. **Natural Language Processing (NLP)** - specific application area showing improvements
+3. **Transformer Architectures** - a type of neural network model
+4. **Attention Mechanisms** - a key component that processes text
+5. **Long-range Dependencies** - the linguistic problem being addressed (how words far apart in text relate to each other)
+
+The text is essentially about how modern AI models (transformers) use attention mechanisms to better understand relationships between distant words in text.</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">While the solution demonstrates excellent understanding of the content and identifies appropriate topics (Machine Learning, Natural Language Processing, Transformer Architectures, Attention Mechanisms, Long-range Dependencies), it fails all three mandatory requirements. The output must be a valid JSON array of strings containing only topic names, with no additional text, formatting, or commentary. The current response provides markdown-formatted explanations and descriptive text, which directly violates the explicit requirements.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage where topics are not explicitly stated but implied through examples and case studies</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent studies demonstrate how climate adaptation strategies vary across geographic contexts. In Bangladesh, communities have implemented floating gardens and tidal embankments to manage monsoon flooding, while simultaneously developing salt-tolerant rice varieties to counter soil salinization. Meanwhile, Kenyan pastoralists have adopted mobile water management systems and diversified livestock portfolios to cope with increasingly erratic rainfall patterns. These case studies illustrate broader principles of livelihood resilience, agricultural innovation, and community-based resource management in the face of environmental change.</td>
+                <td class="criteria">• Extracts all major topics implied through examples and case studies, including but not limited to: climate adaptation, flood management, agricultural innovation, and resource management<br>• Returns results as a JSON array of strings<br>• Identifies topics even when not explicitly stated as single phrases, requiring inference from provided examples</td>
+                <td class="output"><pre># Topics in This Text
+
+1. **Climate Adaptation Strategies** - Various approaches communities use to adjust to climate change
+
+2. **Geographic Variation** - How adaptation differs across different regions and contexts
+
+3. **Flooding Management** - Specific techniques like floating gardens and tidal embankments in Bangladesh
+
+4. **Agricultural Innovation** - Development of salt-tolerant rice varieties and crop adaptation
+
+5. **Soil Salinization** - Environmental challenge and responses in coastal/delta regions
+
+6. **Rainfall Variability** - Dealing with unpredictable precipitation patterns (Kenya example)
+
+7. **Pastoralism & Livestock Management** - Diversified portfolios and mobile water systems for herding communities
+
+8. **Livelihood Resilience** - Building sustainable ways of life despite environmental pressures
+
+9. **Community-Based Resource Management** - Local, grassroots approaches to environmental challenges
+
+10. **Water Management** - Systems for managing water resources in variable climates
+
+**Overall Theme:** How different communities worldwide are adapting agricultural and livelihood practices to cope with climate change and environmental variability.</pre></td>
+                <td class="score-col"><span class="score score-low">2</span></td>
+                <td class="reasoning">The solution fails all three mandatory requirements. It does not return results as a JSON array of strings - instead it provides a formatted numbered list with descriptive text for each item. The strings contain extra commentary explaining each topic, violating the requirement for 'only a topic without any extra commentary.' The response includes an entire additional section ('Overall Theme') when it should contain 'only' the JSON array. While the actual topic identification is comprehensive and accurate, the format violation is a mandatory requirement failure that results in automatic assignment of a score of 3 or lower.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage discussing historical events that contain implicit topics requiring inference</td>
+                <td class="prompt-inputs"><strong>content:</strong> The fall of the Berlin Wall in 1989 marked a pivotal moment in Cold War geopolitics, as East German citizens breached the concrete barrier that had symbolized ideological division for nearly three decades. The subsequent reunification process involved complex negotiations between Soviet leadership under Mikhail Gorbachev, whose policies of glasnost and perestroika had inadvertently destabilized Eastern Bloc control, and Western powers seeking to reshape the post-war European order. Economic integration of formerly communist regions proved more challenging than anticipated, with significant disparities in infrastructure, industrial capacity, and living standards requiring substantial capital investment and institutional reform across multiple sectors.</td>
+                <td class="criteria">• Extracts explicit topics directly mentioned (e.g., Berlin Wall, Cold War, reunification)<br>• Identifies implicit topics requiring inference from context (e.g., Soviet collapse, geopolitical realignment, economic disparity)<br>• Returns results as a JSON array of strings<br>• Avoids duplicates and maintains reasonable granularity of topics</td>
+                <td class="output"><pre># Topics in this text:
+
+1. **The Berlin Wall's Fall (1989)** - Historical event and its significance
+2. **Cold War Geopolitics** - The broader political context
+3. **East German History** - Specifically the breaching of the wall by citizens
+4. **Ideological Division** - The symbolic meaning of the barrier
+5. **Soviet Leadership** - Mikhail Gorbachev's role
+6. **Glasnost and Perestroika** - Soviet reform policies and their effects
+7. **Eastern Bloc Control** - Destabilization and collapse
+8. **Post-War European Order** - Western powers' geopolitical reshaping
+9. **German Reunification** - The political process and negotiations
+10. **Economic Integration** - Challenges of integrating communist and capitalist economies
+11. **Economic Disparities** - Differences in infrastructure, industry, and living standards
+12. **Institutional Reform** - Structural changes needed in formerly communist regions
+
+**Core theme:** The political and economic consequences of the Cold War's end, particularly focusing on German reunification and the challenges of integrating East and West Germany.</pre></td>
+                <td class="score-col"><span class="score score-low">2</span></td>
+                <td class="reasoning">The solution comprehensively identifies relevant topics from the passage and demonstrates good understanding of both explicit and implicit concepts. However, it fundamentally violates the mandatory requirements by: (1) not providing output as a JSON array of strings, (2) including substantial commentary and markdown formatting instead of only the array, and (3) adding headers and thematic summaries. The mandatory requirements explicitly state 'Response should contain the JSON array and nothing else.' This is an automatic failure condition regardless of the quality of topic extraction.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage that has overlapping or related topics that could be grouped differently</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study examines the intersection of cognitive psychology and educational neuroscience in understanding learning mechanisms. We investigate how metacognitive strategies—encompassing self-monitoring, strategy selection, and performance evaluation—enhance student achievement across domains. Furthermore, our neuroimaging findings reveal that metacognition activates prefrontal cortex regions previously associated with executive function and working memory processes. These cognitive and neural correlates of metacognition suggest that interventions targeting metacognitive awareness may simultaneously strengthen executive control capacities. Additionally, we explore how metacognitive training protocols interact with individual differences in working memory capacity, demonstrating domain-specific transfer effects in mathematical reasoning and reading comprehension tasks.</td>
+                <td class="criteria">• Extracts all distinct topics without duplicating closely related concepts that could be grouped (e.g., metacognition, executive function, and working memory should be separate entries despite their interconnection)<br>• Presents topics in valid JSON array format with string elements<br>• Captures both psychological/cognitive topics and neuroscience-related topics mentioned in the passage</td>
+                <td class="output"><pre># Topics in This Study
+
+## Primary Topics
+1. **Cognitive Psychology** - Understanding how the mind works in learning
+2. **Educational Neuroscience** - Brain-based approaches to education
+3. **Metacognition** - Thinking about one's own thinking processes
+
+## Specific Metacognitive Components
+- Self-monitoring
+- Strategy selection
+- Performance evaluation
+
+## Neuroscience Findings
+- **Brain activation** - Prefrontal cortex involvement
+- **Executive function** - Higher-order cognitive control
+- **Working memory** - Temporary information processing
+
+## Application Areas
+- **Educational interventions** - Training protocols to improve metacognition
+- **Individual differences** - Variations in working memory capacity
+- **Domain-specific learning:**
+  - Mathematical reasoning
+  - Reading comprehension
+
+## Cross-Cutting Themes
+- **Transfer effects** - How skills apply across different contexts
+- **Student achievement** - Academic performance outcomes
+
+In essence, this is about how being aware of and managing your own thinking processes improves learning, with supporting evidence from brain imaging and practical classroom applications.</pre></td>
+                <td class="score-col"><span class="score score-low">2</span></td>
+                <td class="reasoning">The solution demonstrates strong understanding of the content and identifies appropriate topics with good organization. However, it completely fails to meet all three mandatory requirements: (1) it is not a JSON array, (2) the entries contain extra commentary beyond simple topic strings, and (3) it includes substantial markdown formatting and explanatory text instead of only the JSON array. The task explicitly requires a JSON array of strings containing only topics with no additional content, and this solution violates this requirement entirely.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing domain-specific jargon from quantum physics that requires precise topic extraction</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in quantum entanglement detection have been facilitated by improvements in Bell test experiments and loophole-free measurements. The implementation of quantum key distribution protocols utilizing entangled photon pairs has demonstrated superior security guarantees compared to classical cryptography methods. Furthermore, the development of quantum error correction codes, particularly surface codes and topological codes, has become critical for scaling quantum computing architectures. These techniques address decoherence mechanisms in superconducting qubits and trapped-ion systems, enabling longer coherence times and higher fidelity gate operations. The relationship between quantum nonlocality, contextuality, and measurement-induced entanglement generation continues to yield insights for quantum teleportation and distributed quantum computing frameworks.</td>
+                <td class="criteria">• All key domain-specific terms and concepts (quantum entanglement, Bell test, quantum key distribution, quantum error correction, decoherence, etc.) are captured as distinct topics<br>• Output is a valid JSON array of strings with appropriate topic labels<br>• Topics accurately reflect the scholarly content without over-generalizing or under-specifying</td>
+                <td class="output"><pre># Topics in This Text
+
+1. **Quantum Entanglement Detection**
+   - Bell test experiments
+   - Loophole-free measurements
+
+2. **Quantum Cryptography**
+   - Quantum key distribution (QKD) protocols
+   - Entangled photon pairs
+   - Security advantages over classical methods
+
+3. **Quantum Error Correction**
+   - Surface codes
+   - Topological codes
+   - Scaling quantum computing
+
+4. **Quantum Computing Hardware**
+   - Superconducting qubits
+   - Trapped-ion systems
+   - Coherence times and gate fidelity
+
+5. **Quantum Mechanics Foundations**
+   - Quantum nonlocality
+   - Contextuality
+   - Measurement-induced entanglement
+
+6. **Quantum Information Applications**
+   - Quantum teleportation
+   - Distributed quantum computing
+
+**Overall Theme:** Advanced quantum technologies and their practical implementations in computing and cryptography.</pre></td>
+                <td class="score-col"><span class="score score-low">2</span></td>
+                <td class="reasoning">The solution violates all three mandatory requirements. While the content itself identifies appropriate topics and demonstrates strong understanding of the scholarly material, the format is fundamentally wrong. The solution provides a markdown-formatted document with hierarchical organization, sub-topics, and explanatory text instead of a simple JSON array of topic strings. The mandatory requirements explicitly state: (1) must be a JSON array of strings, (2) strings should contain only topics without extra commentary, and (3) response should contain the JSON array and nothing else. This solution violates all three by using markdown formatting, including sub-bullets and descriptions, and providing extensive additional commentary. A correct response would be a simple JSON array like: ["Quantum Entanglement Detection", "Bell Test Experiments", "Loophole-free Measurements", ...]</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing multiple nested topics within a single paragraph of climate change research</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent climate modeling studies demonstrate the complex interplay between atmospheric CO2 concentrations and oceanic heat absorption, revealing that surface temperature increases are exacerbated by positive feedback mechanisms involving water vapor amplification and albedo reduction from Arctic sea ice loss. Furthermore, paleoclimate reconstructions utilizing ice core isotope analysis and sediment core chronologies indicate that current anthropogenic warming rates exceed natural variability by an order of magnitude, while simultaneously, hydrological cycle intensification is altering precipitation patterns and triggering cascading impacts on agriculture, freshwater availability, and ecosystem migration patterns across multiple biomes.</td>
+                <td class="criteria">• All distinct topics are identified and extracted into the JSON array<br>• Topics are specific enough to be meaningful (e.g., not overly broad or vague)<br>• Nested or interconnected concepts are captured as separate topics</td>
+                <td class="output"><pre># Topics in this text:
+
+1. **Climate Modeling** - atmospheric CO2 and ocean heat absorption dynamics
+
+2. **Global Warming** - surface temperature increases and anthropogenic (human-caused) warming
+
+3. **Climate Feedback Mechanisms** - water vapor amplification and albedo reduction
+
+4. **Arctic Ice Loss** - sea ice decline and its climate effects
+
+5. **Paleoclimatology** - ice core and sediment core analysis of past climate
+
+6. **Climate Change Rates** - comparison of current vs. natural historical warming
+
+7. **Hydrological Cycle** - precipitation pattern changes
+
+8. **Climate Impacts** - effects on:
+   - Agriculture
+   - Freshwater resources
+   - Ecosystem migration
+   - Multiple biomes
+
+This is essentially an overview of **climate change science**, covering its causes, evidence, mechanisms, and consequences.</pre></td>
+                <td class="score-col"><span class="score score-low">2</span></td>
+                <td class="reasoning">The solution fails all three mandatory requirements. While the content identifies valid and appropriate topics, the format is completely wrong. The task explicitly requires: (1) a JSON array of strings, (2) containing only topic names without extra commentary, and (3) the response should contain the JSON array and nothing else. The provided solution instead presents topics as a formatted markdown list with descriptions, explanatory text, and a concluding paragraph. This is an automatic failure despite the quality of topic extraction.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing acronyms and abbreviations to ensure topics are correctly identified despite abbreviations</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in machine learning (ML) have revolutionized natural language processing (NLP) through the development of transformer-based architectures. The BERT model, introduced by Google, utilizes bidirectional encoder representations and has significantly improved performance on various benchmark datasets such as GLUE and SuperGLUE. Furthermore, fine-tuning pre-trained language models using techniques like Low-Rank Adaptation (LoRA) has enabled efficient transfer learning across downstream tasks including sentiment analysis, question answering (QA), and named entity recognition (NER). The emergence of large language models (LLMs) such as GPT-3 and their variants has also prompted discussions around prompt engineering, in-context learning, and the reduction of computational overhead through knowledge distillation (KD) methodologies.</td>
+                <td class="criteria">• Correctly identifies core topics despite presence of acronyms and abbreviations (e.g., ML, NLP, BERT, LoRA, QA, NER, LLMs, KD)<br>• Extracts topics as full semantic concepts rather than fragmentary acronym definitions<br>• Avoids duplicating topics and maintains clarity in the JSON array format</td>
+                <td class="output"><pre># Topics Covered
+
+1. **Machine Learning (ML)** - General field and recent advances
+
+2. **Natural Language Processing (NLP)** - Core application area
+
+3. **Transformer-Based Architectures** - Neural network framework
+
+4. **BERT Model** - Specific pre-trained language model by Google
+
+5. **Bidirectional Encoder Representations** - Technical approach used in BERT
+
+6. **Benchmark Datasets** - GLUE and SuperGLUE for evaluation
+
+7. **Fine-Tuning** - Model adaptation technique
+
+8. **Low-Rank Adaptation (LoRA)** - Efficient training method
+
+9. **Transfer Learning** - Applying pre-trained models to new tasks
+
+10. **Downstream NLP Tasks:**
+    - Sentiment Analysis
+    - Question Answering (QA)
+    - Named Entity Recognition (NER)
+
+11. **Large Language Models (LLMs)** - GPT-3 and variants
+
+12. **Prompt Engineering** - Technique for optimizing LLM inputs
+
+13. **In-Context Learning** - Learning from examples in prompts
+
+14. **Knowledge Distillation (KD)** - Model compression technique
+
+15. **Computational Efficiency** - Reducing overhead in model deployment</pre></td>
+                <td class="score-col"><span class="score score-low">2</span></td>
+                <td class="reasoning">The solution identifies appropriate topics and understands the semantic content well, meeting the secondary criteria for topic extraction quality. However, it catastrophically fails all three mandatory requirements: (1) The output is not a JSON array of strings - it's formatted as a markdown-styled numbered list, (2) Each entry contains substantial commentary beyond just the topic name (e.g., '- General field and recent advances'), and (3) The response includes a markdown header and additional formatting rather than containing only the JSON array. The correct format should be: {"topics": ["Machine Learning", "Natural Language Processing", ...]} or similar, with no extra text or commentary.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage that mixes methodological topics with content topics in psychology research</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study employed a mixed-methods design combining longitudinal survey data with semi-structured interviews to examine cognitive behavioral therapy (CBT) efficacy in treating social anxiety disorder. Participants completed validated self-report measures including the Social Phobia Scale and Beck Anxiety Inventory at baseline, 12 weeks, and 24 weeks post-intervention. Qualitative thematic analysis revealed that exposure-based interventions targeting avoidance behaviors produced significant reductions in anxiety symptoms, with 68% of participants demonstrating clinically meaningful improvement. Additionally, neuroimaging findings from functional MRI indicated decreased amygdala activation following treatment, supporting the neurobiological mechanisms underlying cognitive restructuring and emotion regulation processes in anxiety disorders.</td>
+                <td class="criteria">• Extracts both methodological topics (mixed-methods design, longitudinal survey, semi-structured interviews, thematic analysis, functional MRI) and content topics (CBT, social anxiety disorder, exposure-based interventions, anxiety symptoms, emotion regulation)<br>• Output is a valid JSON array of strings<br>• No irrelevant or fabricated topics are included</td>
+                <td class="output"><pre># Topics in This Study
+
+1. **Mental Health Treatment**
+   - Cognitive Behavioral Therapy (CBT)
+   - Social anxiety disorder
+
+2. **Research Methodology**
+   - Mixed-methods design
+   - Longitudinal survey data
+   - Semi-structured interviews
+   - Qualitative thematic analysis
+
+3. **Assessment Tools**
+   - Social Phobia Scale
+   - Beck Anxiety Inventory
+   - Self-report measures
+
+4. **Clinical Outcomes**
+   - Anxiety symptom reduction
+   - Treatment efficacy
+   - Clinically meaningful improvement
+
+5. **Intervention Techniques**
+   - Exposure-based interventions
+   - Avoidance behavior targeting
+   - Cognitive restructuring
+   - Emotion regulation
+
+6. **Neurobiology/Brain Imaging**
+   - Functional MRI (fMRI)
+   - Amygdala activation
+   - Neurobiological mechanisms
+
+7. **Study Design Elements**
+   - Baseline and follow-up measurements
+   - 12-week and 24-week time points</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">The solution fails to meet all three mandatory requirements. While the content itself identifies relevant topics accurately, the delivery format is fundamentally wrong. The task explicitly requires: (1) a JSON array of strings, (2) only topics with no extra commentary, and (3) the JSON array and nothing else. The provided solution is a markdown-formatted document with categorical groupings, numbered lists, and explanatory text. This represents a complete structural failure of the core requirement, regardless of content quality. A correct solution would be: {"topics": ["Cognitive Behavioral Therapy", "Social Anxiety Disorder", "Mixed-methods Design", ...]} or similar simple JSON array format with no additional text.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage from an interdisciplinary article that spans topics across multiple fields (biology + economics, for example)</td>
+                <td class="prompt-inputs"><strong>content:</strong> The emergence of biopharmaceutical supply chains has created novel economic challenges at the intersection of molecular biology and industrial organization. Recent advances in recombinant DNA technology enable cost-effective production of therapeutic proteins, yet the capital requirements for fermentation facilities and regulatory compliance create significant barriers to market entry. Simultaneously, patent expiration of blockbuster biologics has intensified competition, forcing firms to optimize enzyme kinetics while managing labor costs in manufacturing. Network effects in distribution channels further complicate pricing strategies, as hospitals negotiate bulk purchases of monoclonal antibodies based on clinical efficacy data and production economies of scale.</td>
+                <td class="criteria">• Extracts topics spanning biology, economics, and business domains without redundancy<br>• Returns output as a valid JSON array of strings<br>• Captures all major subject areas discussed in the passage</td>
+                <td class="output"><pre># Topics in this passage:
+
+1. **Biopharmaceutical Supply Chain Economics** - the economic systems and challenges in producing drugs
+
+2. **Molecular Biology & Industrial Organization** - intersection of scientific production with business structures
+
+3. **Recombinant DNA Technology** - genetic engineering methods for protein production
+
+4. **Capital Requirements & Market Entry Barriers** - investment costs and regulatory obstacles
+
+5. **Fermentation Technology** - large-scale biological manufacturing processes
+
+6. **Patent Expiration & Generic Competition** - biosimilars and competitive pressures after patent loss
+
+7. **Enzyme Kinetics Optimization** - improving efficiency of biological processes
+
+8. **Manufacturing Labor Costs** - workforce expenses in production
+
+9. **Distribution Networks & Channel Economics** - how drugs reach end-users
+
+10. **Pricing Strategy** - complex pricing in pharmaceutical markets
+
+11. **Monoclonal Antibodies** - a specific therapeutic protein category
+
+12. **Hospital Procurement & Bulk Purchasing** - healthcare system buying behavior
+
+13. **Economies of Scale** - cost advantages of large-scale production
+
+14. **Clinical Efficacy Data** - performance metrics driving purchasing decisions
+
+**Core themes:** Pharmaceutical manufacturing economics, biotech supply chain complexity, and competitive dynamics in biologics markets.</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">While the solution identifies excellent topics that meet the secondary criteria (spanning domains, capturing major subject areas, minimal redundancy), it fails all three mandatory requirements: (1) the output is not in valid JSON array format, (2) the strings contain extra commentary and formatting rather than topics alone, and (3) the response includes additional explanatory text beyond the JSON array. The task explicitly requires ONLY a JSON array of strings with no additional content. This is a clear and automatic failure of mandatory requirements.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

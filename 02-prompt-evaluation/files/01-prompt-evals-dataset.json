@@ -1,0 +1,17 @@
+[
+  {
+    "task": "Parse an AWS S3 bucket name and region from an S3 URI in the format s3://bucket-name/key and extract just the bucket name",
+    "format": "Regex",
+    "solution_criteria": "The regex pattern should correctly extract the bucket name from various S3 URIs like s3://my-bucket/path/to/file and s3://another-bucket-123/file.txt, ignoring the region and key path"
+  },
+  {
+    "task": "Create a JSON configuration object for an AWS Lambda function that specifies the function name, runtime, role ARN, timeout in seconds, and memory allocation in MB",
+    "format": "JSON",
+    "solution_criteria": "The JSON object should include required fields: FunctionName, Runtime (e.g., python3.11), Role, Timeout (integer), and MemorySize (integer between 128 and 10240)"
+  },
+  {
+    "task": "Write a Python function that takes an AWS IAM policy string and validates whether it contains dangerous wildcard permissions (Resource: * or Action: *)",
+    "format": "Python",
+    "solution_criteria": "The function should return True if dangerous wildcards are found in either the Resource or Action fields, False otherwise, and handle both string wildcards and arrays containing wildcards"
+  }
+]

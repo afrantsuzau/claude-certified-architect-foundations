@@ -1,0 +1,123 @@
+[
+  {
+    "prompt_inputs": {
+      "content": "Recent climate modeling studies demonstrate the complex interplay between atmospheric CO2 concentrations and oceanic heat absorption, revealing that surface temperature increases are exacerbated by positive feedback mechanisms involving water vapor amplification and albedo reduction from Arctic sea ice loss. Furthermore, paleoclimate reconstructions utilizing ice core isotope analysis and sediment core chronologies indicate that current anthropogenic warming rates exceed natural variability by an order of magnitude, while simultaneously, hydrological cycle intensification is altering precipitation patterns and triggering cascading impacts on agriculture, freshwater availability, and ecosystem migration patterns across multiple biomes."
+    },
+    "solution_criteria": [
+      "All distinct topics are identified and extracted into the JSON array",
+      "Topics are specific enough to be meaningful (e.g., not overly broad or vague)",
+      "Nested or interconnected concepts are captured as separate topics"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage containing multiple nested topics within a single paragraph of climate change research"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in machine learning have demonstrated significant improvements in natural language processing tasks. This study focuses on transformer-based architectures that utilize attention mechanisms to capture long-range dependencies in text."
+    },
+    "solution_criteria": [
+      "Extracts all major topics present in the passage",
+      "Returns output as a valid JSON array of strings",
+      "Includes primary concepts without excessive fragmentation"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a very short passage (2-3 sentences) to verify the prompt handles minimal content appropriately"
+  },
+  {
+    "prompt_inputs": {
+      "content": "The emergence of biopharmaceutical supply chains has created novel economic challenges at the intersection of molecular biology and industrial organization. Recent advances in recombinant DNA technology enable cost-effective production of therapeutic proteins, yet the capital requirements for fermentation facilities and regulatory compliance create significant barriers to market entry. Simultaneously, patent expiration of blockbuster biologics has intensified competition, forcing firms to optimize enzyme kinetics while managing labor costs in manufacturing. Network effects in distribution channels further complicate pricing strategies, as hospitals negotiate bulk purchases of monoclonal antibodies based on clinical efficacy data and production economies of scale."
+    },
+    "solution_criteria": [
+      "Extracts topics spanning biology, economics, and business domains without redundancy",
+      "Returns output as a valid JSON array of strings",
+      "Captures all major subject areas discussed in the passage"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage from an interdisciplinary article that spans topics across multiple fields (biology + economics, for example)"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent studies demonstrate how climate adaptation strategies vary across geographic contexts. In Bangladesh, communities have implemented floating gardens and tidal embankments to manage monsoon flooding, while simultaneously developing salt-tolerant rice varieties to counter soil salinization. Meanwhile, Kenyan pastoralists have adopted mobile water management systems and diversified livestock portfolios to cope with increasingly erratic rainfall patterns. These case studies illustrate broader principles of livelihood resilience, agricultural innovation, and community-based resource management in the face of environmental change."
+    },
+    "solution_criteria": [
+      "Extracts all major topics implied through examples and case studies, including but not limited to: climate adaptation, flood management, agricultural innovation, and resource management",
+      "Returns results as a JSON array of strings",
+      "Identifies topics even when not explicitly stated as single phrases, requiring inference from provided examples"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage where topics are not explicitly stated but implied through examples and case studies"
+  },
+  {
+    "prompt_inputs": {
+      "content": "This study employed a mixed-methods design combining longitudinal survey data with semi-structured interviews to examine cognitive behavioral therapy (CBT) efficacy in treating social anxiety disorder. Participants completed validated self-report measures including the Social Phobia Scale and Beck Anxiety Inventory at baseline, 12 weeks, and 24 weeks post-intervention. Qualitative thematic analysis revealed that exposure-based interventions targeting avoidance behaviors produced significant reductions in anxiety symptoms, with 68% of participants demonstrating clinically meaningful improvement. Additionally, neuroimaging findings from functional MRI indicated decreased amygdala activation following treatment, supporting the neurobiological mechanisms underlying cognitive restructuring and emotion regulation processes in anxiety disorders."
+    },
+    "solution_criteria": [
+      "Extracts both methodological topics (mixed-methods design, longitudinal survey, semi-structured interviews, thematic analysis, functional MRI) and content topics (CBT, social anxiety disorder, exposure-based interventions, anxiety symptoms, emotion regulation)",
+      "Output is a valid JSON array of strings",
+      "No irrelevant or fabricated topics are included"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage that mixes methodological topics with content topics in psychology research"
+  },
+  {
+    "prompt_inputs": {
+      "content": "The fall of the Berlin Wall in 1989 marked a pivotal moment in Cold War geopolitics, as East German citizens breached the concrete barrier that had symbolized ideological division for nearly three decades. The subsequent reunification process involved complex negotiations between Soviet leadership under Mikhail Gorbachev, whose policies of glasnost and perestroika had inadvertently destabilized Eastern Bloc control, and Western powers seeking to reshape the post-war European order. Economic integration of formerly communist regions proved more challenging than anticipated, with significant disparities in infrastructure, industrial capacity, and living standards requiring substantial capital investment and institutional reform across multiple sectors."
+    },
+    "solution_criteria": [
+      "Extracts explicit topics directly mentioned (e.g., Berlin Wall, Cold War, reunification)",
+      "Identifies implicit topics requiring inference from context (e.g., Soviet collapse, geopolitical realignment, economic disparity)",
+      "Returns results as a JSON array of strings",
+      "Avoids duplicates and maintains reasonable granularity of topics"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage discussing historical events that contain implicit topics requiring inference"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in machine learning (ML) have revolutionized natural language processing (NLP) through the development of transformer-based architectures. The BERT model, introduced by Google, utilizes bidirectional encoder representations and has significantly improved performance on various benchmark datasets such as GLUE and SuperGLUE. Furthermore, fine-tuning pre-trained language models using techniques like Low-Rank Adaptation (LoRA) has enabled efficient transfer learning across downstream tasks including sentiment analysis, question answering (QA), and named entity recognition (NER). The emergence of large language models (LLMs) such as GPT-3 and their variants has also prompted discussions around prompt engineering, in-context learning, and the reduction of computational overhead through knowledge distillation (KD) methodologies."
+    },
+    "solution_criteria": [
+      "Correctly identifies core topics despite presence of acronyms and abbreviations (e.g., ML, NLP, BERT, LoRA, QA, NER, LLMs, KD)",
+      "Extracts topics as full semantic concepts rather than fragmentary acronym definitions",
+      "Avoids duplicating topics and maintains clarity in the JSON array format"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage containing acronyms and abbreviations to ensure topics are correctly identified despite abbreviations"
+  },
+  {
+    "prompt_inputs": {
+      "content": "This study examines the intersection of cognitive psychology and educational neuroscience in understanding learning mechanisms. We investigate how metacognitive strategies\u2014encompassing self-monitoring, strategy selection, and performance evaluation\u2014enhance student achievement across domains. Furthermore, our neuroimaging findings reveal that metacognition activates prefrontal cortex regions previously associated with executive function and working memory processes. These cognitive and neural correlates of metacognition suggest that interventions targeting metacognitive awareness may simultaneously strengthen executive control capacities. Additionally, we explore how metacognitive training protocols interact with individual differences in working memory capacity, demonstrating domain-specific transfer effects in mathematical reasoning and reading comprehension tasks."
+    },
+    "solution_criteria": [
+      "Extracts all distinct topics without duplicating closely related concepts that could be grouped (e.g., metacognition, executive function, and working memory should be separate entries despite their interconnection)",
+      "Presents topics in valid JSON array format with string elements",
+      "Captures both psychological/cognitive topics and neuroscience-related topics mentioned in the passage"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage that has overlapping or related topics that could be grouped differently"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in quantum entanglement detection have been facilitated by improvements in Bell test experiments and loophole-free measurements. The implementation of quantum key distribution protocols utilizing entangled photon pairs has demonstrated superior security guarantees compared to classical cryptography methods. Furthermore, the development of quantum error correction codes, particularly surface codes and topological codes, has become critical for scaling quantum computing architectures. These techniques address decoherence mechanisms in superconducting qubits and trapped-ion systems, enabling longer coherence times and higher fidelity gate operations. The relationship between quantum nonlocality, contextuality, and measurement-induced entanglement generation continues to yield insights for quantum teleportation and distributed quantum computing frameworks."
+    },
+    "solution_criteria": [
+      "All key domain-specific terms and concepts (quantum entanglement, Bell test, quantum key distribution, quantum error correction, decoherence, etc.) are captured as distinct topics",
+      "Output is a valid JSON array of strings with appropriate topic labels",
+      "Topics accurately reflect the scholarly content without over-generalizing or under-specifying"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage containing domain-specific jargon from quantum physics that requires precise topic extraction"
+  },
+  {
+    "prompt_inputs": {
+      "content": "This study examined the efficacy of cognitive behavioral therapy (CBT) in treating anxiety disorders across 847 patients over a 12-week intervention period. Results demonstrated a 67% reduction in anxiety symptoms, with mean anxiety scores decreasing from 32.4 (SD=5.1) to 10.7 (SD=4.3). Gender differences were minimal (p=0.284), though patients aged 25-40 showed significantly greater improvements than those over 50 (effect size d=0.89). The therapeutic mechanisms underlying CBT's effectiveness include cognitive restructuring, exposure therapy, and behavioral activation. Treatment adherence rates of 78% correlated positively with positive outcomes (r=0.56, p<0.001), while dropout rates of 15% were primarily attributed to scheduling conflicts rather than dissatisfaction with the therapeutic approach."
+    },
+    "solution_criteria": [
+      "Extracts conceptual topics (e.g., cognitive behavioral therapy, anxiety disorders, therapeutic mechanisms) as distinct entries",
+      "Does not include numerical values, statistics, percentages, or measurements as standalone topics",
+      "Excludes population descriptors (sample sizes, age ranges) as topics unless they are conceptual themes"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage containing numerical data and statistics to verify the prompt distinguishes data from conceptual topics"
+  }
+]
