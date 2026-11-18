@@ -1,123 +1,125 @@
 [
   {
     "prompt_inputs": {
-      "content": "Recent climate modeling studies demonstrate the complex interplay between atmospheric CO2 concentrations and oceanic heat absorption, revealing that surface temperature increases are exacerbated by positive feedback mechanisms involving water vapor amplification and albedo reduction from Arctic sea ice loss. Furthermore, paleoclimate reconstructions utilizing ice core isotope analysis and sediment core chronologies indicate that current anthropogenic warming rates exceed natural variability by an order of magnitude, while simultaneously, hydrological cycle intensification is altering precipitation patterns and triggering cascading impacts on agriculture, freshwater availability, and ecosystem migration patterns across multiple biomes."
+      "content": "Machine learning algorithms have demonstrated significant improvements in natural language processing tasks through the application of transformer-based architectures and attention mechanisms."
     },
     "solution_criteria": [
-      "All distinct topics are identified and extracted into the JSON array",
-      "Topics are specific enough to be meaningful (e.g., not overly broad or vague)",
-      "Nested or interconnected concepts are captured as separate topics"
-    ],
-    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
-    "scenario": "Testing with a passage containing multiple nested topics within a single paragraph of climate change research"
-  },
-  {
-    "prompt_inputs": {
-      "content": "Recent advances in machine learning have demonstrated significant improvements in natural language processing tasks. This study focuses on transformer-based architectures that utilize attention mechanisms to capture long-range dependencies in text."
-    },
-    "solution_criteria": [
-      "Extracts all major topics present in the passage",
-      "Returns output as a valid JSON array of strings",
-      "Includes primary concepts without excessive fragmentation"
-    ],
-    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
-    "scenario": "Testing with a very short passage (2-3 sentences) to verify the prompt handles minimal content appropriately"
-  },
-  {
-    "prompt_inputs": {
-      "content": "The emergence of biopharmaceutical supply chains has created novel economic challenges at the intersection of molecular biology and industrial organization. Recent advances in recombinant DNA technology enable cost-effective production of therapeutic proteins, yet the capital requirements for fermentation facilities and regulatory compliance create significant barriers to market entry. Simultaneously, patent expiration of blockbuster biologics has intensified competition, forcing firms to optimize enzyme kinetics while managing labor costs in manufacturing. Network effects in distribution channels further complicate pricing strategies, as hospitals negotiate bulk purchases of monoclonal antibodies based on clinical efficacy data and production economies of scale."
-    },
-    "solution_criteria": [
-      "Extracts topics spanning biology, economics, and business domains without redundancy",
-      "Returns output as a valid JSON array of strings",
-      "Captures all major subject areas discussed in the passage"
-    ],
-    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
-    "scenario": "Testing with a passage from an interdisciplinary article that spans topics across multiple fields (biology + economics, for example)"
-  },
-  {
-    "prompt_inputs": {
-      "content": "Recent studies demonstrate how climate adaptation strategies vary across geographic contexts. In Bangladesh, communities have implemented floating gardens and tidal embankments to manage monsoon flooding, while simultaneously developing salt-tolerant rice varieties to counter soil salinization. Meanwhile, Kenyan pastoralists have adopted mobile water management systems and diversified livestock portfolios to cope with increasingly erratic rainfall patterns. These case studies illustrate broader principles of livelihood resilience, agricultural innovation, and community-based resource management in the face of environmental change."
-    },
-    "solution_criteria": [
-      "Extracts all major topics implied through examples and case studies, including but not limited to: climate adaptation, flood management, agricultural innovation, and resource management",
-      "Returns results as a JSON array of strings",
-      "Identifies topics even when not explicitly stated as single phrases, requiring inference from provided examples"
-    ],
-    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
-    "scenario": "Testing with a passage where topics are not explicitly stated but implied through examples and case studies"
-  },
-  {
-    "prompt_inputs": {
-      "content": "This study employed a mixed-methods design combining longitudinal survey data with semi-structured interviews to examine cognitive behavioral therapy (CBT) efficacy in treating social anxiety disorder. Participants completed validated self-report measures including the Social Phobia Scale and Beck Anxiety Inventory at baseline, 12 weeks, and 24 weeks post-intervention. Qualitative thematic analysis revealed that exposure-based interventions targeting avoidance behaviors produced significant reductions in anxiety symptoms, with 68% of participants demonstrating clinically meaningful improvement. Additionally, neuroimaging findings from functional MRI indicated decreased amygdala activation following treatment, supporting the neurobiological mechanisms underlying cognitive restructuring and emotion regulation processes in anxiety disorders."
-    },
-    "solution_criteria": [
-      "Extracts both methodological topics (mixed-methods design, longitudinal survey, semi-structured interviews, thematic analysis, functional MRI) and content topics (CBT, social anxiety disorder, exposure-based interventions, anxiety symptoms, emotion regulation)",
       "Output is a valid JSON array of strings",
-      "No irrelevant or fabricated topics are included"
+      "All major topics from the sentence are extracted (e.g., machine learning, natural language processing, transformers, attention mechanisms)",
+      "No extraneous or fabricated topics are included"
     ],
     "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
-    "scenario": "Testing with a passage that mixes methodological topics with content topics in psychology research"
+    "scenario": "Testing with a brief single-sentence passage to verify the prompt handles minimal input gracefully"
   },
   {
     "prompt_inputs": {
-      "content": "The fall of the Berlin Wall in 1989 marked a pivotal moment in Cold War geopolitics, as East German citizens breached the concrete barrier that had symbolized ideological division for nearly three decades. The subsequent reunification process involved complex negotiations between Soviet leadership under Mikhail Gorbachev, whose policies of glasnost and perestroika had inadvertently destabilized Eastern Bloc control, and Western powers seeking to reshape the post-war European order. Economic integration of formerly communist regions proved more challenging than anticipated, with significant disparities in infrastructure, industrial capacity, and living standards requiring substantial capital investment and institutional reform across multiple sectors."
+      "content": "The emergence of Romanticism in early nineteenth-century Europe represented a profound shift away from Enlightenment rationalism toward subjective experience and emotional authenticity. This movement, which encompassed literature, visual arts, and music, elevated individualism and the sublime power of nature as central aesthetic concerns. Key figures like Wordsworth and Shelley championed the imagination as a transformative force, while simultaneously, nationalist ideologies began fragmenting the cosmopolitan ideals of the previous century. The Industrial Revolution's rapid urbanization prompted Romantic thinkers to idealize pastoral landscapes and pre-industrial societies, creating tensions between progress and tradition that would define much of subsequent cultural discourse."
     },
     "solution_criteria": [
-      "Extracts explicit topics directly mentioned (e.g., Berlin Wall, Cold War, reunification)",
-      "Identifies implicit topics requiring inference from context (e.g., Soviet collapse, geopolitical realignment, economic disparity)",
-      "Returns results as a JSON array of strings",
-      "Avoids duplicates and maintains reasonable granularity of topics"
+      "All major topics are extracted from the passage",
+      "Topics are distinct concepts, not overly granular phrases",
+      "Output is a valid JSON array of strings"
     ],
     "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
-    "scenario": "Testing with a passage discussing historical events that contain implicit topics requiring inference"
+    "scenario": "Testing with a humanities passage discussing historical events, ideologies, and cultural movements"
   },
   {
     "prompt_inputs": {
-      "content": "Recent advances in machine learning (ML) have revolutionized natural language processing (NLP) through the development of transformer-based architectures. The BERT model, introduced by Google, utilizes bidirectional encoder representations and has significantly improved performance on various benchmark datasets such as GLUE and SuperGLUE. Furthermore, fine-tuning pre-trained language models using techniques like Low-Rank Adaptation (LoRA) has enabled efficient transfer learning across downstream tasks including sentiment analysis, question answering (QA), and named entity recognition (NER). The emergence of large language models (LLMs) such as GPT-3 and their variants has also prompted discussions around prompt engineering, in-context learning, and the reduction of computational overhead through knowledge distillation (KD) methodologies."
+      "content": "Recent advances in machine learning have revolutionized natural language processing, particularly through deep learning architectures such as transformer models. These neural networks, which employ attention mechanisms for processing sequential data, have enabled breakthroughs in machine translation, sentiment analysis, and question answering systems. The transformer architecture itself relies on self-attention mechanisms, a core component of deep learning that allows models to weigh the importance of different words in a sequence. Furthermore, applications of natural language processing in machine translation have benefited enormously from these attention-based deep learning models, achieving unprecedented accuracy in multilingual translation tasks. Meanwhile, sentiment analysis techniques continue to evolve, leveraging transformer-based architectures to better understand contextual nuances in textual data."
     },
     "solution_criteria": [
-      "Correctly identifies core topics despite presence of acronyms and abbreviations (e.g., ML, NLP, BERT, LoRA, QA, NER, LLMs, KD)",
-      "Extracts topics as full semantic concepts rather than fragmentary acronym definitions",
-      "Avoids duplicating topics and maintains clarity in the JSON array format"
+      "Returns a JSON array of strings with no duplicate topics",
+      "Captures all primary topics and subject areas mentioned",
+      "Avoids redundant entries where topics are discussed at different levels of specificity or in different contexts"
     ],
     "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
-    "scenario": "Testing with a passage containing acronyms and abbreviations to ensure topics are correctly identified despite abbreviations"
+    "scenario": "Testing with a passage containing overlapping or nested topics to verify accurate deduplication"
   },
   {
     "prompt_inputs": {
-      "content": "This study examines the intersection of cognitive psychology and educational neuroscience in understanding learning mechanisms. We investigate how metacognitive strategies\u2014encompassing self-monitoring, strategy selection, and performance evaluation\u2014enhance student achievement across domains. Furthermore, our neuroimaging findings reveal that metacognition activates prefrontal cortex regions previously associated with executive function and working memory processes. These cognitive and neural correlates of metacognition suggest that interventions targeting metacognitive awareness may simultaneously strengthen executive control capacities. Additionally, we explore how metacognitive training protocols interact with individual differences in working memory capacity, demonstrating domain-specific transfer effects in mathematical reasoning and reading comprehension tasks."
+      "content": "Recent advances in photosynthetic efficiency have demonstrated how cellular respiration in plant chloroplasts can be optimized through manipulation of electron transport chains. When exposed to anthropogenic nitrogen deposition, terrestrial ecosystems exhibit altered biogeochemical cycling patterns, particularly in soil microbial communities that mediate nutrient mineralization. Furthermore, the interaction between atmospheric carbon dioxide concentration and soil pH influences the solubility of essential minerals, which subsequently affects the uptake of trace metals by plant root systems through chelation chemistry. These coupled biological and chemical processes underscore the complexity of environmental systems where organismal physiology, chemical reactions, and ecosystem-level processes are inextricably linked."
     },
     "solution_criteria": [
-      "Extracts all distinct topics without duplicating closely related concepts that could be grouped (e.g., metacognition, executive function, and working memory should be separate entries despite their interconnection)",
-      "Presents topics in valid JSON array format with string elements",
-      "Captures both psychological/cognitive topics and neuroscience-related topics mentioned in the passage"
+      "Extracted topics must include major disciplinary areas (biology, chemistry, environmental science concepts) present in the passage",
+      "Output must be a valid JSON array of strings with no duplicates",
+      "All topics must be specific enough to be recognizable from the passage content"
     ],
     "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
-    "scenario": "Testing with a passage that has overlapping or related topics that could be grouped differently"
+    "scenario": "Testing with a multi-disciplinary passage mixing biology, chemistry, and environmental science concepts"
   },
   {
     "prompt_inputs": {
-      "content": "Recent advances in quantum entanglement detection have been facilitated by improvements in Bell test experiments and loophole-free measurements. The implementation of quantum key distribution protocols utilizing entangled photon pairs has demonstrated superior security guarantees compared to classical cryptography methods. Furthermore, the development of quantum error correction codes, particularly surface codes and topological codes, has become critical for scaling quantum computing architectures. These techniques address decoherence mechanisms in superconducting qubits and trapped-ion systems, enabling longer coherence times and higher fidelity gate operations. The relationship between quantum nonlocality, contextuality, and measurement-induced entanglement generation continues to yield insights for quantum teleportation and distributed quantum computing frameworks."
+      "content": "Social identity theory posits that individuals derive self-esteem and social meaning from their group memberships, leading to in-group favoritism and out-group discrimination in competitive contexts. Recent longitudinal studies examining workplace diversity initiatives demonstrate that while surface-level diversity increases cognitive heterogeneity and innovation outcomes, it simultaneously elevates intergroup anxiety and reduces social cohesion unless accompanied by cooperative task structures and transformative leadership practices. Furthermore, educational interventions employing perspective-taking exercises and common identity frames have shown efficacy in reducing implicit bias and prejudice among adolescents, though effect sizes diminish without sustained implementation and institutional support mechanisms."
     },
     "solution_criteria": [
-      "All key domain-specific terms and concepts (quantum entanglement, Bell test, quantum key distribution, quantum error correction, decoherence, etc.) are captured as distinct topics",
-      "Output is a valid JSON array of strings with appropriate topic labels",
-      "Topics accurately reflect the scholarly content without over-generalizing or under-specifying"
+      "Extracts all major theoretical concepts and frameworks mentioned (e.g., social identity theory, in-group favoritism, implicit bias)",
+      "Includes both theoretical topics and applied/practical topics (e.g., workplace diversity initiatives, educational interventions)",
+      "Output is formatted as a JSON array of strings",
+      "No critical topics are omitted from the passage"
     ],
     "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
-    "scenario": "Testing with a passage containing domain-specific jargon from quantum physics that requires precise topic extraction"
+    "scenario": "Testing with a social science passage on psychology or sociology that includes both theoretical and applied topics"
   },
   {
     "prompt_inputs": {
-      "content": "This study examined the efficacy of cognitive behavioral therapy (CBT) in treating anxiety disorders across 847 patients over a 12-week intervention period. Results demonstrated a 67% reduction in anxiety symptoms, with mean anxiety scores decreasing from 32.4 (SD=5.1) to 10.7 (SD=4.3). Gender differences were minimal (p=0.284), though patients aged 25-40 showed significantly greater improvements than those over 50 (effect size d=0.89). The therapeutic mechanisms underlying CBT's effectiveness include cognitive restructuring, exposure therapy, and behavioral activation. Treatment adherence rates of 78% correlated positively with positive outcomes (r=0.56, p<0.001), while dropout rates of 15% were primarily attributed to scheduling conflicts rather than dissatisfaction with the therapeutic approach."
+      "content": "This study employs a dynamic stochastic general equilibrium (DSGE) model to examine the heterogeneous effects of monetary policy transmission across income quintiles in advanced economies. Using vector autoregression (VAR) analysis on quarterly data spanning 2008-2022, we find that contractionary shocks disproportionately affect lower-income households, with consumption declining 2.3% compared to 0.8% for upper-income groups. The Phillips curve exhibits significant flattening, suggesting diminished inflation sensitivity to output gaps. Additionally, we quantify wealth inequality effects through asset price volatility, finding that asset-rich households benefit from portfolio rebalancing during policy tightening cycles. Our impulse response functions reveal that fiscal multipliers vary substantially depending on the monetary policy stance, ranging from 0.6 during accommodative periods to 1.4 during restrictive regimes."
     },
     "solution_criteria": [
-      "Extracts conceptual topics (e.g., cognitive behavioral therapy, anxiety disorders, therapeutic mechanisms) as distinct entries",
-      "Does not include numerical values, statistics, percentages, or measurements as standalone topics",
-      "Excludes population descriptors (sample sizes, age ranges) as topics unless they are conceptual themes"
+      "Extracts all major economic concepts and analytical themes present in the passage",
+      "Output is formatted as a valid JSON array of strings",
+      "No irrelevant words or incomplete phrases are included"
     ],
     "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
-    "scenario": "Testing with a passage containing numerical data and statistics to verify the prompt distinguishes data from conceptual topics"
+    "scenario": "Testing with a dense economic or policy analysis passage containing abstract concepts and statistical themes"
+  },
+  {
+    "prompt_inputs": {
+      "content": "The study examined how dietary interventions affect metabolic pathways in sedentary populations. Participants consumed a high-polyphenol diet rich in anthocyanins and resveratrol while maintaining their usual physical activity levels. Serum glucose regulation improved significantly, alongside reductions in inflammatory markers such as C-reactive protein and IL-6. These findings suggest mechanisms involving mitochondrial function and cellular stress responses, though the subjects' unchanged exercise habits raise questions about the independent contribution of nutritional factors versus potential confounding variables related to overall lifestyle compliance."
+    },
+    "solution_criteria": [
+      "Extracts explicit topics mentioned directly in the passage (e.g., dietary interventions, metabolic pathways, polyphenols)",
+      "Identifies implicit topics requiring inference from context clues (e.g., oxidative stress, lifestyle factors, metabolic health) rather than explicitly named",
+      "Returns all topics in valid JSON array format with string elements",
+      "Avoids over-specification or misidentification of marginal details as core topics"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage containing implicit topics that require inference rather than explicit mention"
+  },
+  {
+    "prompt_inputs": {
+      "content": "We investigate the coherence properties of entangled photon pairs generated via spontaneous parametric down-conversion in a type-II phase-matched \u03b2-barium borate crystal. Using quantum state tomography and violation of Bell inequalities through CHSH measurements, we demonstrate non-local correlations with S-parameter values exceeding 2.70 \u00b1 0.05, confirming entanglement in both polarization and temporal degrees of freedom. Our implementation of quantum key distribution protocols leverages the high-fidelity entanglement to achieve secure communication over 40 km of optical fiber with quantum bit error rates below 11%. Additionally, we employ Hong-Ou-Mandel interference to characterize photon indistinguishability with visibility exceeding 94%, establishing the suitability of our source for scalable quantum computing applications utilizing linear optical quantum gates and photonic cluster states."
+    },
+    "solution_criteria": [
+      "Extracts all major domain-specific topics (e.g., spontaneous parametric down-conversion, Bell inequalities, quantum key distribution, Hong-Ou-Mandel interference)",
+      "Returns output as a valid JSON array of strings",
+      "Captures both experimental techniques and physical phenomena discussed"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a highly specialized physics or quantum mechanics abstract with domain-specific terminology"
+  },
+  {
+    "prompt_inputs": {
+      "content": "In their seminal work, Smith et al. (2019) demonstrated that neuroplasticity mechanisms in the prefrontal cortex are modulated by dopaminergic signaling pathways, building on earlier findings by Johnson and colleagues at MIT. The researchers, affiliated with Stanford University's Department of Neuroscience, examined 247 subjects using functional magnetic resonance imaging (fMRI) across three experimental conditions. Their results, published in Nature Neuroscience by Dr. Helen Richardson and Dr. Marcus Chen, revealed significant correlations between synaptic pruning rates and cognitive flexibility scores, challenging the prevailing Hebbian learning theory. The study's methodology, which incorporated longitudinal cohort analysis and multivariate statistical modeling developed by Professor Yuki Tanaka, provides new insights into neurobiological substrates of executive function and attention regulation."
+    },
+    "solution_criteria": [
+      "Extracted topics must be substantive concepts (neuroplasticity, dopaminergic signaling, synaptic pruning, cognitive flexibility, executive function) rather than proper nouns (names, institutions, journals)",
+      "Should exclude metadata elements such as author names, publication venues, universities, and citation references",
+      "Topics should be returned as a JSON array of strings with no additional formatting or explanation"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage heavy in proper nouns, citations, and author references to distinguish topics from metadata"
+  },
+  {
+    "prompt_inputs": {
+      "content": "This study examines the relationship between neuroplasticity and cognitive recovery following traumatic brain injury. Neuroplasticity, the brain's ability to reorganize and form new neural connections, has emerged as a central mechanism in rehabilitation outcomes. While traditional approaches focused on compensatory strategies, recent findings demonstrate that targeted neuroplasticity-based interventions significantly enhance functional recovery. The research involved 127 patients with moderate to severe TBI, measuring cognitive outcomes across memory, attention, and executive function domains. Memory deficits were observed in 94% of patients initially, with neuroplasticity interventions showing 68% recovery rates after six months. Executive function improvements lagged behind memory and attention gains, suggesting differential neuroplasticity responses across cognitive domains. Additionally, age-related factors influenced neuroplasticity capacity, with younger patients demonstrating faster neural reorganization. These findings underscore the importance of understanding neuroplasticity mechanisms for optimizing rehabilitation protocols in traumatic brain injury cases."
+    },
+    "solution_criteria": [
+      "Extract all major topics mentioned in the passage into a JSON array of strings",
+      "Weight topics by frequency of mention (topics appearing multiple times should be prioritized/included)",
+      "Exclude minor or passing references that appear only once",
+      "Format output as valid JSON array with string elements"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings.",
+    "scenario": "Testing with a passage where topics are mentioned only once versus multiple times to test weighting/priority"
   }
 ]
